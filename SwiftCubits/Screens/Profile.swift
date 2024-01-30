@@ -10,6 +10,7 @@ import SwiftUI
 struct Profile: View {
     //@EnvironmentObject private var authManagerCopy: AuthManager
     @Binding var showSignInView: Bool
+    @Binding var selectedTab: Views
     @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
@@ -124,6 +125,7 @@ struct Profile: View {
                     do{
                         try viewModel.signOut()
                         showSignInView = true
+                        selectedTab = .home
                     } catch{
                         //TODO: FIX THIS ERROR HANDLING
                         print(error)
@@ -145,6 +147,6 @@ private func scaleValue(geometry: GeometryProxy) -> CGFloat {
     return scale
 }
 #Preview {
-    Profile(showSignInView: .constant(false))
+    Profile(showSignInView: .constant(false), selectedTab: .constant(.profile))
 }
 

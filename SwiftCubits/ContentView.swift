@@ -22,7 +22,7 @@ struct ContentView: View {
                     }
                 case .profile:
                     NavigationStack {
-                        Profile(showSignInView: $showSignInView)
+                        Profile(showSignInView: $showSignInView, selectedTab: $selectedTab)
                     }
                 case .build:
                     NavigationStack {
