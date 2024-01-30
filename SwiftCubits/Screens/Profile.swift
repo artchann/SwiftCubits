@@ -10,7 +10,7 @@ import SwiftUI
 struct Profile: View {
     //@EnvironmentObject private var authManagerCopy: AuthManager
     @Binding var showSignInView: Bool
-    @StateObject private var viewModel = SettingsViewModel()
+    @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
         ScrollView{

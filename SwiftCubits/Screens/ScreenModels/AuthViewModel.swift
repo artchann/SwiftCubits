@@ -26,8 +26,8 @@ final class SignInEmailViewModel: ObservableObject{
         do {
             let returnedUserData = try await AuthManager.shared.createUser(email: email, password: password)
             
-            //MARK: TEST ME FOR DUPLICATE DATABASE WRITE
-            try await UserManager.shared.createNewUser(auth: returnedUserData)
+            //
+            try await UserManager.shared.createNewUser(auth: returnedUserData) // MARK: DB write here, change if necessary
             //
             
             print("Success")

@@ -13,7 +13,7 @@ final class AuthManager{
     static let shared = AuthManager() // TODO: fix this singleton, low priority
     private init() { }
 
-    func getAuthUser() throws -> AuthDataResultModel{ //LOCAL COPY IS SAVED -- NO ASYNC
+    func getAuthUser() throws -> AuthDataResultModel{ //MARK: LOCAL COPY OF USER IS SAVED -- NO ASYNC
         guard let user = Auth.auth().currentUser else{
             throw URLError(.badServerResponse)
         }
