@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class ProfileViewModel: ObservableObject{
+final class ProfileModel: ObservableObject{
     
     @Published private(set) var user: DBUser? = nil // only allow modification within this file "private(set)" && Optional type w/ default nil
     
