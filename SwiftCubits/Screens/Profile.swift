@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct Profile: View {
-    //@EnvironmentObject private var authManagerCopy: AuthManager
     @Binding var showSignInView: Bool
     @Binding var selectedTab: Views
-    @StateObject private var viewModel = ProfileViewModel()
+    @StateObject private var viewModel = ProfileModel()
+    
+    //MARK:
+    //const here? of passable variable attributes
+    // have to make sure that profile model will re init it's values upon reaching profile screen
     
     var body: some View {
         ScrollView{

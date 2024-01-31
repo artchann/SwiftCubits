@@ -28,7 +28,7 @@ struct AuthView: View {
                 
                 Button{
                     Task{
-                        do{
+                        do{ //TODO: DISPLAY ERROR FOR MISMATCH OF FB LOGIN PARAMETERS
                             try await viewModel.signUp()
                             showSignInView = false
                             return

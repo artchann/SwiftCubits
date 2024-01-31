@@ -17,6 +17,7 @@ final class SignInEmailViewModel: ObservableObject{
     //TODO: Social media logins calls
     
     
+    //TODO: CHECK AGAINST FIREBASE LOGIN PARAMETERS, GUARD AGAINST DISPLAY OF HOME SCREEN WHEN NOT MATCHED
     func signUp() async throws {
         guard !email.isEmpty, !password.isEmpty else{
             print ("Error invalid field") //TODO: Error handling
