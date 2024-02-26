@@ -17,7 +17,6 @@ struct PreInstructions: View{
     
     //MARK: Programmatically pass these into our grid
     let imageNames = ["image1", "image2", "image3", "image4"]
-
     
     var body: some View {
         ScrollView{
@@ -26,7 +25,7 @@ struct PreInstructions: View{
                     .fontWeight(.heavy)
                     .font(.system(size:30))
                     .padding()
-                Image(systemName: "square.and.arrow.down.fill")
+                Image(systemName: "square.and.arrow.down.fill") //TODO: Replace with asteroid
                     .resizable()
                     .frame(width:200, height:200)
                 
@@ -72,16 +71,9 @@ struct GridItemView: View {
                 .padding()
         }
         .sheet(isPresented: $isPresented) {
-            SubscreenView(imageName: imageName) //TODO: REQUIRES MODEL
+            SheetView(imageName: imageName)
+                .presentationDetents([.medium, .medium])
         }
-    }
-}
-
-//TODO: REQUIRES MODEL FROM GRIDITEM
-struct SubscreenView: View {
-    let imageName: String
-    var body: some View {
-        Text("This is the subscreen for \(imageName)")
     }
 }
 
