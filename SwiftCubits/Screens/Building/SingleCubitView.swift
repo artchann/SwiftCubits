@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SceneKit
 
-struct PrimaryLayerView: UIViewRepresentable {
+struct SingleCubitView: UIViewRepresentable {
     let scene = SCNScene()
     let box: SCNBox = .init()
 
@@ -47,5 +47,5 @@ struct PrimaryLayerView: UIViewRepresentable {
 }
 
 #Preview{
-    PrimaryLayerView()
+    SingleCubitView()
 }

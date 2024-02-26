@@ -1,19 +1,16 @@
 //
-//  Instructions.swift
+//  PreInstructions.swift
 //  SwiftCubits
 //
-//  Created by Wei Chen on 1/3/24.
+//  Created by Arthur Chan on 2/25/24.
 //
-
 import SwiftUI
 import SceneKit
 import ARKit
 import UIKit
+import Foundation
 
-struct Instructions: View {
-    //MARK: can use .init() here to load in an object file
-    //@State var primarySCNView = PrimaryLayerView()
-    //@State var primarySCNScene = PrimaryLayerView(scene: SCNScene())
+struct PreInstructions: View{
     @State var primarySCNScene = SingleCubitView()
     
     
@@ -38,10 +35,6 @@ struct Instructions: View {
     }
 }
 
-func testRender(){
-    
-}
-
-#Preview {
-    Instructions()
+#Preview(){
+    PreInstructions()
 }
