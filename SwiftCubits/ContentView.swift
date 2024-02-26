@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    //authmodel will save signinview state locally
     @State private var showSignInView: Bool = false
-    @State private var selectedTab: Views = .home
+    @ObservedObject var tabSelection: TabSelection
+
     var body: some View {
+<<<<<<< HEAD
             ZStack {
                 // Main content
                 switch selectedTab {
@@ -30,26 +30,41 @@ struct ContentView: View {
                             //
                             //.environmentObject(AuthManager)
                     }
+=======
+        ZStack {
+            switch tabSelection.selectedTab {
+            case .home:
+                NavigationStack {
+                    Home()
+>>>>>>> main
                 }
-
-                VStack {
-                    CustomBar(selectedTab: $selectedTab)
+            case .profile:
+                NavigationStack {
+                    Profile(showSignInView: $showSignInView)
+                }
+            case .build:
+                NavigationStack {
+                    Build()
+                        //.environmentObject(AuthManager)
                 }
             }
 
-            .onAppear{
-                let authUser = try? AuthManager.shared.getAuthUser()
-                self.showSignInView = authUser == nil ? true : false
+            VStack {
+                CustomBar(selectedTab: $tabSelection.selectedTab)
             }
-            
-            .fullScreenCover(isPresented: $showSignInView, content: { //bind to showSigninView
-                NavigationStack{
-                    AuthView(showSignInView: $showSignInView)
-                }
-            })
         }
+        .onAppear {
+            let authUser = try? AuthManager.shared.getAuthUser()
+            self.showSignInView = authUser == nil ? true : false
+        }
+        .fullScreenCover(isPresented: $showSignInView, content: {
+            NavigationStack {
+                AuthView(showSignInView: $showSignInView)
+            }
+        })
+    }
 }
 
 #Preview {
-    ContentView()
+    ContentView(tabSelection: TabSelection())
 }

@@ -12,13 +12,11 @@ import Firebase
 @main
 struct SwiftCubitsApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+    var tabSelection = TabSelection()
     var body: some Scene {
         WindowGroup {
-            NavigationStack{
-                ContentView()
-            }
-            //ContentView()
+            ContentView(tabSelection: tabSelection)
+            .environmentObject(UploadedFilesModel()) // For local Caching
         }
     }
 }
@@ -32,3 +30,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
   }
 }
 
+/* persisting data for later backend handling
+ Uploaded file history
+ User information
+ Generated Instructions
+ */
