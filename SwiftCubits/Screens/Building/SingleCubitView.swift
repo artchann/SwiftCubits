@@ -10,16 +10,18 @@ import SwiftUI
 import SceneKit
 
 struct SingleCubitView: UIViewRepresentable {
-    let scene = SCNScene()
+//    let scene = SCNScene()
     let box: SCNBox = .init()
 
     func makeUIView(context: Context) -> SCNView {
         let sceneView = SCNView(frame: CGRect(x: 0, y: 0, width: 400, height: 400))
 
         let scene = SCNScene()
+        sceneView.allowsCameraControl = true
+        sceneView.autoenablesDefaultLighting = true
         sceneView.scene = scene
         sceneView.backgroundColor = UIColor.gray
-        sceneView.autoenablesDefaultLighting = true
+        
         
         let box = SCNNode()
         box.geometry = SCNBox(width: 3, height: 3, length: 3, chamferRadius: 0)
