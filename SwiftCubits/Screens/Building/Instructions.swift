@@ -26,11 +26,11 @@ struct Instructions: View {
             }
             .padding()
             HStack{
-                Text("Pieces")
+                Text("2")
             }
             .padding()
             HStack{
-                Text("Steps")
+                Text("3")
             }
             .padding()
         }
